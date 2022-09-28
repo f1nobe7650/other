@@ -217,7 +217,7 @@ function espLibrary.getHealth(player, character)
     local humanoid = findFirstChild(character, "Humanoid");
 
     if (humanoid) then
-        return humanoid.Health, humanoid.MaxHealth;
+        return math.floor(humanoid.Health), math.floor(humanoid.MaxHealth);
     end
 
     return 100, 100;
