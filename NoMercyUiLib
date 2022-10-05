@@ -2,8 +2,7 @@
 
 local startupArgs = ({...})[1] or {}
 
-startupArgs.cheatname = "something"
-
+print("balls")
 if getgenv().library ~= nil then
     getgenv().library:Unload();
 end
