@@ -4961,7 +4961,6 @@ function library:CreateSettingsTab(menu)
                 library.change_name(flags.cheat_name, txt);
             end});
 	    
-    main_section:AddSeparator({text = 'Keybinds'});
     main_section:AddToggle({text = 'Keybind Indicator', flag = 'keybind_indicator', callback = function(bool)
         library.keyIndicator:SetEnabled(bool);
     end})
@@ -4972,8 +4971,7 @@ function library:CreateSettingsTab(menu)
         library.keyIndicator:SetPosition(newUDim2(library.flags.keybind_indicator_x / 100, 0, library.flags.keybind_indicator_y / 100, 0));    
     end});
 
-    main_section:AddSeparator({text = 'Watermark'})
-    main_section:AddToggle({text = 'Enabled', flag = 'watermark_enabled'});
+    main_section:AddToggle({text = 'Watermark', flag = 'watermark_enabled'});
     main_section:AddList({text = 'Position', flag = 'watermark_pos', selected = 'Custom', values = {'Top', 'Top Left', 'Top Right', 'Bottom Left', 'Bottom Right', 'Custom'}, callback = function(val)
         library.watermark.lock = val;
     end})
