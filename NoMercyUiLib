@@ -2,6 +2,8 @@
 
 local startupArgs = ({...})[1] or {}
 
+startupArgs.cheatname = "something"
+
 if getgenv().library ~= nil then
     getgenv().library:Unload();
 end
