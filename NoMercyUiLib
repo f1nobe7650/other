@@ -4961,7 +4961,6 @@ function library:CreateSettingsTab(menu)
                 library.change_name(flags.cheat_name, txt);
             end});
 	    
-		mainSection:AddSeparator({text = 'Keybinds'});
 		mainSection:AddToggle({text = 'Keybind Indicator', flag = 'keybind_indicator', callback = function(bool)
 		library.keyIndicator:SetEnabled(bool);
 		end})
