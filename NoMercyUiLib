@@ -63,10 +63,10 @@ local library = {
     open = false;
     opening = false;
     hasInit = false;
-    cheatname = startupArgs.cheatname or 'octohook';
+    cheatname = startupArgs.cheatname or 'osiris';
     gamename = startupArgs.gamename or 'universal';
-    fileext = startupArgs.fileext or '.txt';
-    domain = startupArgs.domain or '.rip';
+    fileext = startupArgs.fileext or '.cfg';
+    domain = startupArgs.domain or '.ai';
 }
 
 
@@ -4950,13 +4950,13 @@ function library:CreateSettingsTab(menu)
             end});
 	    
 	  
-    main_section:AddToggle({text = 'Keybind Indicator', flag = 'keybind_indicator', callback = function(bool)
+    local KeyBinds = main_section:AddToggle({text = 'Keybind Indicator', flag = 'keybind_indicator', callback = function(bool)
         library.keyIndicator:SetEnabled(bool);
     end})
-    main_section:AddSlider({text = 'Position X', flag = 'keybind_indicator_x', min = 0, max = 100, increment = .1, value = .5, callback = function()
+    KeyBinds:AddSlider({text = 'Position X', flag = 'keybind_indicator_x', min = 0, max = 100, increment = .1, value = .5, callback = function()
         library.keyIndicator:SetPosition(newUDim2(library.flags.keybind_indicator_x / 100, 0, library.flags.keybind_indicator_y / 100, 0));    
     end});
-    main_section:AddSlider({text = 'Position Y', flag = 'keybind_indicator_y', min = 0, max = 100, increment = .1, value = 35, callback = function()
+    KeyBinds:AddSlider({text = 'Position Y', flag = 'keybind_indicator_y', min = 0, max = 100, increment = .1, value = 35, callback = function()
         library.keyIndicator:SetPosition(newUDim2(library.flags.keybind_indicator_x / 100, 0, library.flags.keybind_indicator_y / 100, 0));    
     end});
 
