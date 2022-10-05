@@ -4960,16 +4960,7 @@ function library:CreateSettingsTab(menu)
             main_section:AddBox({text = "Cheat Domain", flag = "cheat_domain", input = library.domain, callback = function(txt)
                 library.change_name(flags.cheat_name, txt);
             end});
-	    
-     settings:AddToggle({text = 'Keybind Indicator', flag = 'keybind_indicator', callback = function(bool)
-        library.keyIndicator:SetEnabled(bool);
-    end})
-     settings:AddSlider({text = 'Position X', flag = 'keybind_indicator_x', min = 0, max = 100, increment = .1, value = .5, callback = function()
-        library.keyIndicator:SetPosition(newUDim2(library.flags.keybind_indicator_x / 100, 0, library.flags.keybind_indicator_y / 100, 0));    
-    end});
-     settings:AddSlider({text = 'Position Y', flag = 'keybind_indicator_y', min = 0, max = 100, increment = .1, value = 35, callback = function()
-        library.keyIndicator:SetPosition(newUDim2(library.flags.keybind_indicator_x / 100, 0, library.flags.keybind_indicator_y / 100, 0));    
-    end});
+	   
 
      settings:AddToggle({text = 'Watermark', flag = 'watermark_enabled'});
      settings:AddList({text = 'Position', flag = 'watermark_pos', selected = 'Custom', values = {'Top', 'Top Left', 'Top Right', 'Bottom Left', 'Bottom Right', 'Custom'}, callback = function(val)
