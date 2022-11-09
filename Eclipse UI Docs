@@ -1,0 +1,50 @@
+repeat wait() until game:IsLoaded()
+if game:GetService("CoreGui"):FindFirstChild("HkbLbWscRa7b7jogdSlb") then return end
+library,menu = loadstring(game:HttpGet("https://raw.githubusercontent.com/dauntIess/newclosure/main/backend/uilib.lua"))()
+
+local main = library:addTab("credit deemo#1000")
+local newtab = library:addTab("bbg retract")
+
+local group = main:createGroup(0,"Group Name")
+local group1 = main:createGroup(0,"Menu Settings")
+local group2 = main:createGroup(1,"Configuration")
+
+group:addToggle({text = "Toggle",flag = "solo_toggle"})
+group:addToggle({text = "Toggle",flag = "toggle_disabled",disabled = true})
+group:addToggle({text = "Toggle",flag = "toggle_bind"}):addKeybind({flag = "bind",key = Enum.UserInputType.MouseButton1})
+local toggle1 = group:addToggle({text = "Toggle",flag = "toggle_colorpickers"})
+toggle1:addColorpicker({text = "Colorpicker1",second=true,flag = "toggle_colorpickers1",color = Color3.fromRGB(133,133,133),ontop = true})
+toggle1:addColorpicker({text = "Colorpicker2",second=false,flag = "toggle_colorpickers2",color = Color3.fromRGB(133,133,133),ontop = true})
+
+group:addSlider({text = "Slider",flag = "fps_cap",min = 60,max = 400,value = 144,callback = function(kys) setfpscap(kys) end},"fps")
+group:addList({text = "List",flag = "list",multiselect = false,values = {"Opt1","Opt2","Opt3","Opt4","Opt5","Opt6","Opt7"}})
+group:addList({text = "Multi-List",flag = "multilist",multiselect = true,values = {"Opt1","Opt2","Opt3","Opt4","Opt5","Opt6","Opt7"}})
+
+group1:addColorpicker({text = "Menu Accent",flag = "menu_accent",color = Color3.fromRGB(255,163,26),ontop = true,callback = function(x)
+    for i, v in pairs(menu:GetDescendants()) do
+        if v.Name == "element" or v.Name == "fill" or v.Name == "accent" then
+            v.BackgroundColor3 = x
+        end
+        if v.Name == "on" then
+            v.TextColor3 = x
+        end
+        if v:IsA("TextButton") and v.BackgroundColor3 == library.libColor then
+            v.BackgroundColor3 = x
+        end
+    end
+    library.libColor = x
+    menu.bg.bg.BorderColor3 = x
+end})
+
+group2:addTextbox({text = "Config Name",flag = "config_name"})
+group2:addList({text = "Configs",flag = "selected_config",skipflag = true,values = {}})
+group2:addButton({text = "Load",callback = library.loadConfig})
+group2:addButton({text = "Refresh",callback = library.refreshConfigs})
+group2:addButton({text = 'Delete',callback = library.deleteConfig})
+group2:addButton({text = "Save",callback = library.saveConfig})
+group2:addDivider()
+group2:addButton({text = "Unload",callback = function()
+    game:GetService("CoreGui"):FindFirstChild("HkbLbWscRa7b7jogdSlb"):Destroy()
+end})
+
+library.refreshConfigs()
