@@ -830,7 +830,7 @@ function library.new(library_title, cfg_location)
                                 AutoButtonColor = false,
                                 Font = Enum.Font.Ubuntu,
                                 Text = "",
-                                TextXAlignment = Enum.TextXAlignment.Right,
+                                TextXAlignment = Enum.TextXAlignment.Left,
                             }, ToggleButton)
 
                             local ColorFrame = library:create("Frame", {
