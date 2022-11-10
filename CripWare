@@ -822,7 +822,7 @@ function library.new(library_title, cfg_location)
 
                             local ColorButton = library:create("TextButton", {
                                 Name = "ColorButton",
-                                AnchorPoint = Vector2.new(1, 1),
+                                AnchorPoint = Vector2.new(1, 0.5),
                                 BackgroundColor3 = Color3.fromRGB(255, 28, 28),
                                 BorderColor3 = Color3.fromRGB(0, 0, 0),
                                 Position = UDim2.new(0, 265, 0.5, 0),
@@ -830,7 +830,7 @@ function library.new(library_title, cfg_location)
                                 AutoButtonColor = false,
                                 Font = Enum.Font.Ubuntu,
                                 Text = "",
-                                TextXAlignment = Enum.TextXAlignment.Left,
+                                TextXAlignment = Enum.TextXAlignment.Right,
                             }, ToggleButton)
 
                             local ColorFrame = library:create("Frame", {
@@ -838,10 +838,10 @@ function library.new(library_title, cfg_location)
                                 Parent = ColorButton,
                                 BackgroundColor3 = Color3.fromRGB(10, 10, 10),
                                 BorderColor3 = Color3.fromRGB(0, 0, 0),
-                                Position = UDim2.new(1, 5, 0, 0),
+                                Position = UDim2.new(1, -5, 0, 0),
                                 Size = UDim2.new(0, 200, 0, 170),
                                 Visible = false,
-                                ZIndex = 3,
+                                ZIndex = 2,
                             }, ColorButton)
 
                             local ColorPicker = library:create("ImageButton", {
@@ -853,7 +853,7 @@ function library.new(library_title, cfg_location)
                                 AutoButtonColor = false,
                                 Image = "rbxassetid://4155801252",
                                 ImageColor3 = Color3.fromRGB(255, 0, 4),
-                                ZIndex = 3,
+                                ZIndex = 2,
                             }, ColorFrame)
 
                             local ColorPick = library:create("Frame", {
@@ -861,7 +861,7 @@ function library.new(library_title, cfg_location)
                                 BackgroundColor3 = Color3.fromRGB(255, 255, 255),
                                 BorderColor3 = Color3.fromRGB(0, 0, 0),
                                 Size = UDim2.new(0, 1, 0, 1),
-                                ZIndex = 3,
+                                ZIndex = 2,
                             }, ColorPicker)
 
                             local HuePicker = library:create("TextButton", {
@@ -870,7 +870,7 @@ function library.new(library_title, cfg_location)
                                 BorderColor3 = Color3.fromRGB(0, 0, 0),
                                 Position = UDim2.new(0, 10, 0, 10),
                                 Size = UDim2.new(0, 20, 0, 150),
-                                ZIndex = 3,
+                                ZIndex = 2,
                                 AutoButtonColor = false,
                                 Text = "",
                             }, ColorFrame)
@@ -893,7 +893,7 @@ function library.new(library_title, cfg_location)
                                 BackgroundColor3 = Color3.fromRGB(255, 255, 255),
                                 BorderColor3 = Color3.fromRGB(0, 0, 0),
                                 Size = UDim2.new(1, 0, 0, 1),
-                                ZIndex = 3,
+                                ZIndex = 2,
                             }, HuePicker)
 
                             local in_color = false
