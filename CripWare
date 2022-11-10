@@ -838,7 +838,7 @@ function library.new(library_title, cfg_location)
                                 Parent = ColorButton,
                                 BackgroundColor3 = Color3.fromRGB(10, 10, 10),
                                 BorderColor3 = Color3.fromRGB(0, 0, 0),
-                                Position = UDim2.new(1, -200, 0, 0),
+                                Position = UDim2.new(1, -500, 0, 0),
                                 Size = UDim2.new(0, 200, 0, 170),
                                 Visible = false,
                                 ZIndex = 2,
