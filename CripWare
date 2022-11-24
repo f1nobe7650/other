@@ -591,7 +591,7 @@ function library.new(library_title, cfg_location)
                         end)
                         element:set_value(value, true)
 
-                        local has_extra = true
+                        local has_extra = false
                         function element:add_keybind(key_default, key_callback)
                             local keybind = {}
 
@@ -599,7 +599,7 @@ function library.new(library_title, cfg_location)
                             has_extra = true
                             local extra_flag = "$"..flag
 
-                            local extra_value = {Key, Type = "Always", Active = true}
+                            local extra_value = {Key, Type = "Toggle", Active = true}
                             key_callback = key_callback or function() end
 
                             local Keybind = library:create("TextButton", {
