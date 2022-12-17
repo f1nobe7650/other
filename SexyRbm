@@ -532,7 +532,7 @@ do -- Load items
     Layer_3.Selectable = true
     Layer_3.Size = UDim2.new(1, 0, 1, 0)
     Layer_3.Image = "rbxassetid://3570695787"
-    Layer_3.ImageColor3 = Color3.fromRGB(21, 38, 63)
+    Layer_3.ImageColor3 = Color3.fromRGB(194,48,73)
     Layer_3.ScaleType = Enum.ScaleType.Slice
     Layer_3.SliceCenter = Rect.new(100, 100, 100, 100)
     Layer_3.SliceScale = 0.050
