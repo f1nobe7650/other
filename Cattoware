@@ -22,9 +22,9 @@ library.theme = {
     fontsize = 15,
     titlesize = 18,
     font = Enum.Font.Code,
-    background = "rbxassetid://5553946656",
+    background = "",
     tilesize = 90,
-    cursor = false,
+    cursor = true,
     cursorimg = "https://t0.rbxcdn.com/42f66da98c40252ee151326a82aab51f",
     backgroundcolor = Color3.fromRGB(20, 20, 20),
     tabstextcolor = Color3.fromRGB(240, 240, 240),
@@ -63,8 +63,12 @@ if library.theme.cursor and Drawing then
         end)
         
         game:GetService("RunService").RenderStepped:Connect(function()
-            uis.OverrideMouseIconBehavior = Enum.OverrideMouseIconBehavior.ForceHide
-            library.cursor.Visible = uis.MouseEnabled and (uis.MouseIconEnabled or game:GetService("GuiService").MenuIsOpen)
+            library.cursor.Visible = game:GetService("CoreGui").osiris.main.Visible
+	    if game:GetService("CoreGui").osiris.main.Visible == false then 
+	    	uis.OverrideMouseIconBehavior = Enum.OverrideMouseIconBehavior.ForceHide
+	    else 
+	        uis.OverrideMouseIconBehavior = Enum.OverrideMouseIconBehavior.ForceShow
+	    end 
         end)
     elseif not success and library.cursor then
         library.cursor:Remove()
@@ -3653,37 +3657,3 @@ function library:CreateWindow(name, size, hidebutton)
 end
 
 return library
-
---[[
-
-local Window = Library:CreateWindow("osiris", Vector2.new(492, 598), Enum.KeyCode.RightShift)
-
-local Main = Window:CreateTab("Main")
-
-local a = Main:CreateSector("Movement", "left")
-local b = Main:CreateSector("Anti Aim", "right")
-
-local Speed = a:AddToggle('Speed', false, function(Boolean)
-end):AddKeybind()
-
-local Speed = a:AddToggle('Speed', false, function(Boolean)
-end):AddColorpicker(Color3.fromRGB(255, 255, 255), function(color)
-end)
-
-a:AddDropdown('Method', {"CFrame", "BHop"}, "CFrame", false, function(Option)
-end)
-
-
-
-a:AddSlider("Speed", 0, 1, 100, 1, function(Value)
-end)
-
-
-
-a:AddLabel("Label")
-
-a:AddSeperator("Animations")
-
-a:AddTextbox("Target Aim Prediction", nil, function(Text)
-end) 
-]]
