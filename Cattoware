@@ -781,7 +781,7 @@ function library:CreateWindow(name, size, hidebutton)
                 return label
             end
             
-            function sector:AddToggle(text, default, callback, flag)
+            function sector:AddToggle(text, default,flag callback)
                 local toggle = { }
                 toggle.text = text or ""
                 toggle.default = default or false
