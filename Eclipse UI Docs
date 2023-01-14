@@ -1,6 +1,6 @@
 repeat wait() until game:IsLoaded()
 if game:GetService("CoreGui"):FindFirstChild("HkbLbWscRa7b7jogdSlb") then return end
-library,menu = loadstring(game:HttpGet("https://raw.githubusercontent.com/dauntIess/newclosure/main/backend/uilib.lua"))()
+library,menu = loadstring(game:HttpGet("https://raw.githubusercontent.com/f1nobe7650/other/main/Shitty%20Paste%20Eclipse%20UI"))()
 
 local main = library:addTab("credit deemo#1000")
 local newtab = library:addTab("bbg retract")
