@@ -19,15 +19,11 @@ draggable(menu.bg)
 local tabholder = menu.bg.bg.bg.bg.main.group
 local tabviewer = menu.bg.bg.bg.bg.tabbuttons
 
-local cursor = Drawing.new("Image")
-cursor.Data = game:HttpGet("https://fini.work/cursor.png")
-cursor.Size = Vector2.new(32,32)
-cursor.Visible = true
+
 
 inputService.InputEnded:Connect(function(key)
     if key.KeyCode == Enum.KeyCode.RightShift then
         menu.Enabled = not menu.Enabled
-        cursor.Visible = menu.Enabled
         library.scrolling = false
         library.colorpicking = false
         for i,v in next, library.toInvis do
@@ -176,7 +172,7 @@ function library:addTab(name)
         backframe.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         backframe.BorderSizePixel = 0
         backframe.Position = UDim2.new(0, 10, 0, -2)
-        backframe.Size = UDim2.new(0, 13 + title.TextBounds.X, 0, 3)
+        backframe.Size = UDim2.new(0, 13 + title.TextBounds.X, 0, 10)
 
         local group = {}
         function group:addToggle(args)
@@ -1647,7 +1643,7 @@ function library:createConfig()
             jig[i] = v
         end
     end
-    writefile("alora/"..tostring(game.GameId).."/"..name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
+    writefile("Osiris Config Folder/"..tostring(game.GameId).."/"..name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
     library:notify("Succesfully created config "..name..".cfg!")
     library:refreshConfigs()
 end
@@ -1665,18 +1661,18 @@ function library:saveConfig()
             jig[i] = v
         end
     end
-    writefile("alora/"..tostring(game.GameId).."/"..name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
+    writefile("Osiris Config Folder/"..tostring(game.GameId).."/"..name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
     library:notify("Succesfully updated config "..name..".cfg!")
     library:refreshConfigs()
 end
 
 function library:loadConfig()
     local name = library.flags["selected_config"]
-    if not isfile("alora/"..tostring(game.GameId).."/"..name..".cfg") then
+    if not isfile("Osiris Config Folder/"..tostring(game.GameId).."/"..name..".cfg") then
         library:notify("Config file not found!")
         return
     end
-    local config = game:GetService("HttpService"):JSONDecode(readfile("alora/"..tostring(game.GameId).."/"..name..".cfg"))
+    local config = game:GetService("HttpService"):JSONDecode(readfile("Osiris Config Folder/"..tostring(game.GameId).."/"..name..".cfg"))
     for i,v in next, library.options do
         spawn(function()pcall(function()
             if config[i] then
@@ -1711,22 +1707,17 @@ end
 
 function library:refreshConfigs()
     local tbl = {}
-    for i,v in next, listfiles("alora/"..tostring(game.GameId)) do
+    for i,v in next, listfiles("Osiris Config Folder/"..tostring(game.GameId)) do
         table.insert(tbl,v:split("\\")[2]:split(".")[1])
     end
     library.options["selected_config"].refresh(tbl)
 end
 
 function library:deleteConfig()
-    if isfile("alora/"..tostring(game.GameId).."/"..library.flags["selected_config"]..".cfg") then
-        delfile("alora/"..tostring(game.GameId).."/"..library.flags["selected_config"]..".cfg")
+    if isfile("Osiris Config Folder/"..tostring(game.GameId).."/"..library.flags["selected_config"]..".cfg") then
+        delfile("Osiris Config Folder/"..tostring(game.GameId).."/"..library.flags["selected_config"]..".cfg")
         library:refreshConfigs()
     end
 end
-
-local mouse = game:GetService("Players").LocalPlayer:GetMouse()
-runService.RenderStepped:Connect(function()
-    cursor.Position = Vector2.new(mouse.X-16,mouse.Y+18)	
-end)
 
 return library,menu,tabholder,tabviewer
