@@ -1708,7 +1708,7 @@ end
 function library:refreshConfigs()
     local tbl = {}
     for i,v in next, listfiles("OsirisCFGS/") do
-        table.insert(tbl,v:split("\\")[2]:split(".")[1])
+        table.insert(tbl,v)
     end
     library.options["selected_config"].refresh(tbl)
 end
