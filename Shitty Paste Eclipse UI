@@ -733,7 +733,7 @@ function library:addTab(name)
                     library.scrolling = true
                     valuetext.TextColor3 = Color3.fromRGB(255,255,255)
 					scrolling = true
-					local value = args.min + ((mouse.X - button.AbsolutePosition.X) / button.AbsoluteSize.X) * (args.max - args.min)
+					local value = ((mouse.X - button.AbsolutePosition.X) / button.AbsoluteSize.X) * (args.max - args.min)
 					if value < 0 then value = 0 end
 					if value > args.max then value = args.max end
                     if value < args.min then value = args.min end
@@ -1643,7 +1643,7 @@ function library:createConfig()
             jig[i] = v
         end
     end
-    writefile("Osiris Config Folder/"..tostring(game.GameId).."/"..name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
+    writefile("OsirisCFGS/"..tostring(game.GameId).."/"..name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
     library:notify("Succesfully created config "..name..".cfg!")
     library:refreshConfigs()
 end
@@ -1661,18 +1661,18 @@ function library:saveConfig()
             jig[i] = v
         end
     end
-    writefile("Osiris Config Folder/"..tostring(game.GameId).."/"..name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
+    writefile("OsirisCFGS/"..tostring(game.GameId).."/"..name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
     library:notify("Succesfully updated config "..name..".cfg!")
     library:refreshConfigs()
 end
 
 function library:loadConfig()
     local name = library.flags["selected_config"]
-    if not isfile("Osiris Config Folder/"..tostring(game.GameId).."/"..name..".cfg") then
+    if not isfile("OsirisCFGS/"..tostring(game.GameId).."/"..name..".cfg") then
         library:notify("Config file not found!")
         return
     end
-    local config = game:GetService("HttpService"):JSONDecode(readfile("Osiris Config Folder/"..tostring(game.GameId).."/"..name..".cfg"))
+    local config = game:GetService("HttpService"):JSONDecode(readfile("OsirisCFGS/"..tostring(game.GameId).."/"..name..".cfg"))
     for i,v in next, library.options do
         spawn(function()pcall(function()
             if config[i] then
@@ -1707,15 +1707,15 @@ end
 
 function library:refreshConfigs()
     local tbl = {}
-    for i,v in next, listfiles("Osiris Config Folder/"..tostring(game.GameId)) do
+    for i,v in next, listfiles("OsirisCFGS/"..tostring(game.GameId)) do
         table.insert(tbl,v:split("\\")[2]:split(".")[1])
     end
     library.options["selected_config"].refresh(tbl)
 end
 
 function library:deleteConfig()
-    if isfile("Osiris Config Folder/"..tostring(game.GameId).."/"..library.flags["selected_config"]..".cfg") then
-        delfile("Osiris Config Folder/"..tostring(game.GameId).."/"..library.flags["selected_config"]..".cfg")
+    if isfile("OsirisCFGS/"..tostring(game.GameId).."/"..library.flags["selected_config"]..".cfg") then
+        delfile("OsirisCFGS/"..tostring(game.GameId).."/"..library.flags["selected_config"]..".cfg")
         library:refreshConfigs()
     end
 end
