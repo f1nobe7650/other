@@ -86,10 +86,6 @@ function Library:CreateLabel(Properties, IsHud)
         TextStrokeTransparency = 0;
     });
 
-    Library:AddToRegistry(_Instance, {
-        TextColor3 = 'FontColor';
-    }, IsHud);
-
     return Library:Create(_Instance, Properties);
 end;
 
