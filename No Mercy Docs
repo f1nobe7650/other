@@ -1,0 +1,104 @@
+---// Load Library
+local startTick = tick()
+
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/f1nobe7650/other/main/NoMercyUiLib"))({cheatname = "Osiris", gamename = "Da Hood"})
+library:init()
+
+local menu = library.NewWindow({title = "wwwwww bob", size = UDim2.new(0, 500, 0.7, 20.7)})
+
+---Tabs
+local HomeTab = menu:AddTab("Home")
+
+local AimingTab = menu:AddTab("Aiming")
+
+local BlantantTab = menu:AddTab("Blantant")
+
+local VisualsTab = menu:AddTab("Visuals")
+
+local MiscellaneousTab = menu:AddTab("Miscellaneous")
+
+local SettingsTab = library:CreateSettingsTab(menu)
+
+---Sections
+local MiscellaneousTab1 = MiscellaneousTab:AddSection("Test", 1)
+
+---Separators
+MiscellaneousTab1:AddSeparator({text = "Separator"})
+
+MiscellaneousTab1:AddBox({text = "Box", flag = ""})
+
+
+MiscellaneousTab1:AddToggle(
+   {
+       text = "Toggle",
+       flag = "",
+       callback = function(bool)
+           if bool then
+               print("Toggle")
+           else
+               print("Untoggle")
+           end
+       end
+   }
+)
+
+MiscellaneousTab1:AddButton(
+   {
+       text = "Button",
+       confirm = false,
+       callback = function()
+           Print("Button")
+       end
+   }
+)
+
+MiscellaneousTab1:AddBind(
+   {
+       text = "Keybind",
+       flag = "",
+       nomouse = true,
+       noindicator = true,
+       bind = Enum.KeyCode.BackSlash,
+       callback = function()
+           Print("666")
+       end
+   }
+)
+
+MiscellaneousTab1:AddButton(
+   {
+       text = "Notification Sucess",
+       callback = function()
+               library:SendNotification(library.cheatname .. " | asss", 3)
+       end
+   }
+)
+
+MiscellaneousTab1:AddButton(
+   {
+       text = "Notification Error",
+       callback = function()     library:SendNotification(library.cheatname .. " | ass!", 3)
+       end
+   }
+)
+
+MiscellaneousTab1:AddSlider({text = " Slider", flag = '"', suffix = "%", min = 0, max = 100, increment = .1})
+
+MiscellaneousTab1:AddColor(
+   {
+       text = "Color",
+       flag = "",
+       callback = function()
+       end
+   }
+)
+
+MiscellaneousTab1:AddList(
+   {
+       text = "List",
+       flag = "",
+       values = themeStrings,
+       callback = function()
+       end
+   }
+)
