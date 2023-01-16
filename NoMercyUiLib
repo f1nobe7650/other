@@ -2,7 +2,6 @@
 
 local startupArgs = ({...})[1] or {}
 
-print("balls")
 if getgenv().library ~= nil then
     getgenv().library:Unload();
 end
@@ -2430,7 +2429,7 @@ function library:init()
                             local z = library.zindexOrder.window+25;
     
                             objs.holder = utility:Draw('Square', {
-                                Size = newUDim2(0,21,0,17);
+                                Size = newUDim2(0,10,0,12);
                                 Transparency = 0;
                                 ZIndex = z+6;
                                 Parent = self.objects.holder;
