@@ -1,0 +1,20 @@
+local file = isfile("vid.webm")
+
+if not file then
+    writefile("vid.webm", game:HttpGet('https://github.com/f1nobe7650/other/blob/main/tyrisware_edited.webm?raw=true'))
+end
+
+local sgui = Instance.new("ScreenGui")
+local Camera = game.Workspace.CurrentCamera 
+
+
+local vid = Instance.new("VideoFrame")
+vid.Size = UDim2.new(0.1,0,0.15,0)
+vid.Position = UDim2.new(0.65,0,0.6,0)
+vid.Video = getsynasset("vid.webm")
+vid.BackgroundTransparency = 1
+vid.Looped = true 
+sgui.Parent = game:GetService("CoreGui")
+vid.Parent = game:GetService("CoreGui").ScreenGui
+
+vid:Play()
