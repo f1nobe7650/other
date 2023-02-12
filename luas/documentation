@@ -1,0 +1,31 @@
+local hello = window:new_page({name = "peekaboo"})
+local awdawdawd = hello:new_section_holder({name = "Local", size = "Fill", side = "right"})  
+local awdawdawdawdawdadwawd = awdawdawd:new_section({name = 'Test lodawodawol'}) 
+awdawdawdawdawdadwawd:new_toggle({name = "toggle", flag = ''});
+awdawdawdawdawdadwawd:new_toggle({name = "toggle", flag = 'flag',callback = function(a)
+    print(library.flags["flag"])
+end}):new_colorpicker({flag = 'color picker', default = Color3.fromRGB(255,0,0), callback = function(a)
+    print(a)
+end});
+awdawdawdawdawdadwawd:new_slider({name = "slider", max = 1, min = 0, default = 0, flag = 'visualize_transparency', float = 0.01,callback = function(a)
+    print(a)
+end}) 
+awdawdawdawdawdadwawd:new_dropdown({name = "dropdown", flag = 'awdawd', options = {'ForceField','Neon',"Plastic"}, default = 'ForceField',callback = function(a)
+    print(a)
+end})
+awdawdawdawdawdadwawd:new_seperator({name = "seperator"})
+awdawdawdawdawdadwawd:new_dropdown({name = "dropdown", flag = 'visualize_material', options = {'ForceField','Neon',"Plastic"}, default = 'ForceField',max = math.huge,callback = function(a)
+    print(a)
+end})
+awdawdawdawdawdadwawd:new_keybind({name = "keybind", keybind_name = "Aim Assist", flag = 'aim_assist_key',ignore = false, mode = "Toggle",callback = function(a)
+    print(a)
+end})
+awdawdawdawdawdadwawd:new_button({name = "button", callback = function()
+
+end})
+awdawdawdawdawdadwawd:new_textbox({placeholder = "config name", middle = true, flag = 'cfg_name'})
+
+local Toihoihaw = {"a","b","c"}
+
+local Listowo = awdawdawdawdawdadwawd:new_dropdown({name = "select profile:",list = true, size = 175, flag = 'aweddw', options = {}});
+Listowo:refresh(Toihoihaw)
