@@ -1,0 +1,13 @@
+Hello, this is a **commit**!
+
+This is a **commit** *test*!
+# Testing Bold.
+```lua
+local tbl = {
+    [1] = "My index is 1!",
+    [2] = "My index is 2!",
+}
+
+local int = 0xFF
+
+function lol() end```

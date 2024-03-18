@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Game-Shark">
+    <meta property="og:url" content="https://gameshark.dev/">
+    <meta property="og:description" content="The best Universal script on roblox.">
+    <meta content="#00bbff" data-react-helmet="true" name="theme-color" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://i.imgur.com/RVzB6xd.png">
+    <title>Game-Shark</title>
+</head>
+
+<body>
+    <audio loop preload="auto" id="audio" src="audio.mp3" type="audio/mp3"></audio>
+
+    <div id="clickoverlay">
+        <div id="overlay-content">
+            <span>Click</span>
+        </div>
+    </div>
+
+    <div id="particles-js"></div>
+    <script src="particles.js"></script>
+    <script src="app.js"></script>
+    <div id="panel">
+        <div id="content">
+            <img src="Icon.png" alt="Game-Shark Icon">
+            <gradient>Game-Shark</gradient>
+            <span class="infotext">
+                The best <div style="display: inline; font-weight: 800;">Universal</div> script on <div style="display: inline; font-weight: 800;">roblox</div>.
+            </span>
+            <span class="infotext">
+                Owned & Developed by <div style="display: inline; font-weight: 800;">ox_y</div>.
+            </span>
+            <span>
+                #
+                <a href="https://discord.gg/JyqcEWa974">Discord</a>
+            </span>
+            <span>
+                #
+                <a href="https://www.youtube.com/@office4686/">Youtube</a>
+            </span>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("clickoverlay").addEventListener("click", function () {
+            this.classList.add("hide");
+            document.getElementById("audio").play();
+        });
+    </script>
+</body>
+
+</html>
